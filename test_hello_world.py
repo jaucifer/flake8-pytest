@@ -16,5 +16,7 @@ class TestHelloWorld(unittest.TestCase):
     greet = b'Welcome to CI/CD'
     self.assertEqual(response.data, greet)
 
+
 if __name__ == '__main__':
   unittest.main()
+
