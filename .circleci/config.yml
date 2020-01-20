@@ -63,7 +63,7 @@ jobs:
           name: "Create PYTest Reports"
           command: |
               mkdir test-results
-              pytest hello_world.py --junitxml=test-reports/pytest_junit.xml --html=test-reports/pytest_report.html --self-contained-html
+              pytest *.py --junitxml=test-reports/pytest_junit.xml --html=test-reports/pytest_report.html --self-contained-html
           when: always
       - store_test_results:
           path: test-reports
