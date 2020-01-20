@@ -10,7 +10,7 @@ class TestHelloWorld(unittest.TestCase):
   def test_status_code(self):
         response = self.app.get('/')
         self.assertEqual(response.status_code, 200)
- 
+
   def test_greeting_message(self):
     response = self.app.get('/')
     greet = b'Welcome to CI/CD'
