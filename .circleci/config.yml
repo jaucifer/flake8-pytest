@@ -71,6 +71,7 @@ jobs:
             coverage run -m pytest
             coverage report
             coverage html  # open test-reports/index.html in a browser
+          when: always
       - store_test_results:
           path: test-reports
       - store_artifacts:
