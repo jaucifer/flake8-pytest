@@ -73,9 +73,7 @@ jobs:
             coverage html  # open htmlcov/index.html in a browser
           when: always
       - store_test_results:
-          path: 
-            test-reports
-            htmlcov
+          path: htmlcov
       - store_artifacts:
           path: test-reports
 workflows:
