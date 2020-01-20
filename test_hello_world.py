@@ -1,20 +1,16 @@
-from flask import Flask
+import hello_world
+import unittest
 
-
-def wrap_html(greet):
-    html = format(greet)
-    return html
-
-
-app = Flask(__name__)
-
-
-@app.route('/')
-def hello_world():
-    greet = 'Welcome to CI/CD'
-    html = wrap_html(greet)
-    return html
-
-
-if __name__ == '__main__2':
-    app.run(host='0.0.0.0', port=5000)
+class TestHelloWorld(unittest.TestCase):
+  def setUp(self):
+        self.app = hello_world.app.test_client()
+        self.app.testing = True
+  def test_status_code(self):
+        response = self.app.get('/')
+        self.assertEqual(response.status_code, 200)
+  def test_greeting_message(self):
+    response = self.app.get('/')
+    greet = b'Welcome to CI/CD'
+    self.assertEqual(response.data, greet)
+if __name__ == '__main__':
+  unittest.main()
