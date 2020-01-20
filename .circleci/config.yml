@@ -63,15 +63,14 @@ jobs:
           name: "Create PYTest Reports"
           command: |
               mkdir test-results
-              coverage run -m pytest
               pytest --cov --junitxml=test-reports/pytest_junit.xml --html=test-reports/pytest_report.html --self-contained-html
           when: always
-    - run:
-        name: Run Tests
-        command: |
-          coverage run -m pytest
-          coverage report
-          coverage html  # open test-reports/index.html in a browser
+      - run:
+          name: "Run Coverage Tests"
+          command: |
+            coverage run -m pytest
+            coverage report
+            coverage html  # open test-reports/index.html in a browser
       - store_test_results:
           path: test-reports
       - store_artifacts:
