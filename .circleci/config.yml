@@ -62,8 +62,8 @@ jobs:
       - run:
           name: "Create PYTest Reports"
           command: |
-              mkdir test-results
-              pytest --cov --junitxml=test-reports/pytest_junit.xml --html=test-reports/pytest_report.html --self-contained-html
+              mkdir test-results/pytest
+              pytest --cov --junitxml=test-reports/pytest/pytest_junit.xml --html=test-reports/pytest/pytest_report.html --self-contained-html
           when: always
       - store_test_results:
           path: test-reports
